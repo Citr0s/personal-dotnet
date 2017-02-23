@@ -1,0 +1,1 @@
+<img src="https://travis-ci.org/miloszmd/personal-dotnet.svg?branch=master" />
