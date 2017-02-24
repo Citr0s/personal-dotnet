@@ -7,3 +7,9 @@ notifications:
   email: false
 script:
   - cd backend && dotnet restore && dotnet build
+after_success:
+  - eval "$(ssh-agent -s)"
+  - chmod 600 .travis/deploy_key.pem
+  - ssh-add .travis/deploy_key.pem
+  - git remote add deploy ssh://milosz@miloszdura.com/var/www/personal-dotnet/.git
+  - git push live master
