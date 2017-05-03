@@ -5,7 +5,7 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 
 gulp.task('css', function(){
-  return gulp.src('sass/*.scss')
+  return gulp.src('assets/sass/*.scss')
     .pipe(sass())
     .pipe(minifyCSS())
     .pipe(gulp.dest('dist/css'))
@@ -13,10 +13,7 @@ gulp.task('css', function(){
 
 gulp.task('js', function(){
   return gulp.src([
-  			'js/jquery.js',
-  			'js/bootstrap.js',
-  			'js/moment.js',
-  			'js/app.js'
+  			'assets/js/app.js'
 		])
   	.pipe(concat('app.js'))
   	.pipe(uglify())
@@ -24,8 +21,8 @@ gulp.task('js', function(){
 });
 
 gulp.task('watch', ['css', 'js'], function(){
-    gulp.watch('sass/*.scss', ['css']);
-    gulp.watch('js/*.js', ['js']);
+    gulp.watch('assets/sass/*.scss', ['css']);
+    gulp.watch('assets/js/*.js', ['js']);
 });
 
 gulp.task('default', ['css', 'js']);
