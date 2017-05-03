@@ -23,6 +23,9 @@ gulp.task('js', function(){
   	.pipe(gulp.dest('dist/js'));
 });
 
+gulp.task('watch', ['css', 'js'], function(){
+    gulp.watch('sass/*.scss', ['css']);
+    gulp.watch('js/*.js', ['js']);
+});
+
 gulp.task('default', ['css', 'js']);
-gulp.watch('sass/*.scss', ['css']);
-gulp.watch('js/*.js', ['js']);
